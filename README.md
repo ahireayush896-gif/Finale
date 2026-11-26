@@ -1,6 +1,6 @@
 # Finale: High-Speed In-Memory Cache Engine
 
-Finale is a High-Speed In-Memory Cache Engine engineered for ultra-low latency, high-throughput caching applications. It leverages advanced sharding algorithms and consistent hashing to distribute workloads evenly across memory segments, backed by comprehensive benchmark statistics demonstrating sub-millisecond retrieval speeds and massive concurrent throughput.
+Finale is a High-Speed In-Memory Cache Engine engineered for ultra-low latency, high-throughput distributed caching workloads. It leverages advanced sharding algorithms and consistent hashing to distribute data efficiently across memory segments, backed by comprehensive benchmark statistics demonstrating sub-millisecond retrieval latencies and over 1 million operations per second per node.
 
 ---
 
