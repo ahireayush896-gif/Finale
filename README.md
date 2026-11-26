@@ -1,22 +1,22 @@
-# Finale: High-Speed Distributed Cache Engine
+# Finale: Autonomous Quantum Encryption Gateway
 
-Finale is an ultra-low latency, horizontally scalable distributed caching engine designed for high-throughput microservice architectures and real-time data pipelines. Built with high-performance concurrent data structures and robust node clustering protocols, Finale provides lightning-fast in-memory key-value storage with automatic sharding, replication, and fault tolerance.
+Finale is an advanced, ultra-secure Autonomous Quantum Encryption Gateway designed for high-throughput microservice architectures and real-time data pipelines. Built with cutting-edge post-quantum cryptography, automated key rotation protocols, and comprehensive security audit trails, Finale provides military-grade in-memory key-value encryption, secure sharding, replication, and tamper-proof fault tolerance.
 
 ---
 
 ## 🚀 Key Features
 
-- **Blazing Fast In-Memory Storage**: Optimized memory layout and lock-free concurrent hash maps delivering sub-millisecond read/write latencies.
+- **Autonomous Quantum Encryption**: Post-quantum cryptographic algorithms securing data at rest and in transit against quantum computing threats.
+- **Automated Key Rotation Protocols**: Dynamic, zero-downtime cryptographic key rotation backed by cryptographic hardware security modules (HSMs) and policy-driven schedulers.
+- **Comprehensive Security Audits**: Real-time telemetry, tamper-evident audit logging, and automated compliance verification checks.
 - **Automatic Distributed Sharding**: Consistent hashing ring (`MurmurHash3`) distributes keys dynamically across cluster nodes, minimizing rebalancing overhead during cluster scaling.
-- **Replication & Fault Tolerance**: Configurable synchronous/asynchronous master-replica replication with automated leader election and heartbeat node health monitoring.
-- **Adaptive Eviction Policies**: Supports LRU (Least Recently Used), LFU (Least Frequently Used), and TTL-based expiration algorithms.
-- **Python Client & Async API**: Fully asynchronous Python client supporting connection pooling, pipelining, and automatic failover.
+- **Python Client & Async API**: Fully asynchronous Python client supporting connection pooling, secure pipelining, and automatic failover.
 
 ---
 
 ## 🏗️ System Architecture
 
-Finale operates as a decentralized peer-to-peer (or master-replica) distributed cluster. Each node runs an independent query execution engine and memory manager.
+Finale operates as a decentralized peer-to-peer quantum encryption gateway cluster. Each node runs an independent query execution engine, cryptographic processor, and memory manager.
 
 ```
                   +-----------------------------------+
@@ -24,7 +24,7 @@ Finale operates as a decentralized peer-to-peer (or master-replica) distributed 
                   |  (Async Pool / Consistent Hash)   |
                   +-----------------+-----------------+
                                     |
-                    TCP / Binary Protocol & Pipelining
+                    Secure TLS 1.3 & Quantum-Safe Tunnel
                                     |
          +--------------------------+--------------------------+
          |                          |                          |
@@ -41,9 +41,9 @@ Finale operates as a decentralized peer-to-peer (or master-replica) distributed 
 
 ### Core Architectural Components
 
-1. **Consistent Hashing Ring**: The key space is mapped onto a $2^{32}-1$ virtual ring. Nodes are assigned multiple virtual nodes (vnodes) to guarantee uniform distribution and prevent hotspots.
-2. **Memory Engine & Eviction**: Custom arena allocator and slab memory management reduce garbage collection pauses. Background sweeper threads reclaim expired keys based on TTL.
-3. **Transport Layer**: High-performance asynchronous socket server using non-blocking I/O multiplexing and a compact binary serialization format.
+1. **Quantum Encryption Engine**: Implements lattice-based and hash-based post-quantum cryptographic primitives alongside automated key rotation schedulers.
+2. **Consistent Hashing Ring**: The key space is mapped onto a $2^{32}-1$ virtual ring. Nodes are assigned multiple virtual nodes (vnodes) to guarantee uniform distribution and prevent hotspots.
+3. **Transport & Audit Layer**: High-performance asynchronous socket server with end-to-end TLS 1.3 encryption and immutable audit trail generation.
 
 ---
 
@@ -65,32 +65,32 @@ pip install -r requirements.txt
 
 ### 2. Running a Finale Node
 
-Start a standalone or clustered cache node using the CLI runner:
+Start a standalone or clustered encryption gateway node using the CLI runner:
 
 ```bash
-# Start Node 1 on port 6379 with clustering enabled
-python -m finale.server --host 127.0.0.1 --port 6379 --cluster-seed 127.0.0.1:6379
+# Start Node 1 on port 6379 with quantum clustering & key rotation enabled
+python -m finale.server --host 127.0.0.1 --port 6379 --cluster-seed 127.0.0.1:6379 --enable-quantum-encryption
 ```
 
 ### 3. Python Client Integration
 
-Connect to your Finale cluster and perform distributed caching operations using the asynchronous Python client:
+Connect to your Finale cluster and perform secure encryption & caching operations using the asynchronous Python client:
 
 ```python
 import asyncio
 from finale.client import FinaleClient
 
 async def main():
-    # Initialize the client connected to seed nodes
-    client = FinaleClient(nodes=["127.0.0.1:6379", "127.0.0.1:6380"])
+    # Initialize the client connected to seed nodes with quantum security
+    client = FinaleClient(nodes=["127.0.0.1:6379", "127.0.0.1:6380"], quantum_secure=True)
     await client.connect()
 
-    # Set a key with a 60-second TTL
+    # Set an encrypted key with a 60-second TTL
     await client.set("user:1001", {"name": "Alice", "role": "engineer"}, ttl=60)
 
     # Retrieve the value
     user = await client.get("user:1001")
-    print("Retrieved User:", user)
+    print("Retrieved Secure User:", user)
 
     # Delete a key
     await client.delete("user:1001")
